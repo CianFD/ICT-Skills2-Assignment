@@ -10,6 +10,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
+import FaceIcon from '@material-ui/icons/Face';
+import { useHistory } from "react-router-dom"; 
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,9 +33,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieDetails = ({ movie }) => {  // Don't miss this!
+const MovieDetails = ({ movie, props }) => {  // Don't miss this!
     const classes = useStyles();
     const [drawerOpen, setDrawerOpen] = useState(false);
+    let history = useHistory();
+    const handleClick = () => {
+      history.push(`/movies/${movie.id}/cast`)
+    }
   
 
     return (
@@ -77,6 +84,11 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
             </li>
             ))}
         </Paper>
+        <Paper component="ul" className={classes.root}>
+            <li>
+            <Chip icon={<FaceIcon />} label="Cast List" onClick={handleClick} className={classes.chip} color="secondary" />
+            </li>
+        </Paper>
 
         <Fab
         color="secondary"
@@ -90,6 +102,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
             <MovieReviews movie={movie} />
         </Drawer>
+
     </>
   );
 };
