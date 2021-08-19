@@ -5,10 +5,10 @@ import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner';
 import RemoveFromWatchlist from "../components/cardIcons/removeFromWatchlist";
-import WriteReview from "../components/cardIcons/writeReview";
+
 
 const WatchlistMoviesPage = () => {
-  const {watchlist: movieIds } = useContext(MoviesContext);
+  const {watchlists: movieIds } = useContext(MoviesContext);
 
   // Create an array of queries and run in parallel.
   const watchlistMovieQueries = useQueries(
@@ -35,7 +35,6 @@ const WatchlistMoviesPage = () => {
             return (
               <>
                 <RemoveFromWatchlist movie={movie} />
-                <WriteReview movie={movie} />
               </>
             );
           }}
