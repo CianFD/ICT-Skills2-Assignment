@@ -9,10 +9,10 @@ import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import UpcomingMoviesPage from './pages/upcomingMoviesPage';
-import MovieCastPage from "./pages/movieCastPage";
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import WatchlistMoviesPage from './pages/watchlistMoviesPage';
+import TVShowsHomePage from './pages/tvShowsHomePage';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -34,11 +34,11 @@ const App = () => {
                     <Switch>
                     <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                     <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+                    <Route exact path="/tvshows" component={TVShowsHomePage} />
                     <Route path="/reviews/:id" component={MovieReviewPage} />
                     <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                     <Route exact path="/movies/watchlist" component={WatchlistMoviesPage} />
                     <Route path="/movies/:id" component={MoviePage} />
-                    <Route path="/movies/:id/cast" component={MovieCastPage} />
                     <Route exact path="/" component={HomePage} />
                     <Redirect from="*" to="/" />
                     </Switch>

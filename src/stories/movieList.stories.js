@@ -34,3 +34,22 @@ export const Basic = () => {
   );
 };
 Basic.storyName = "Default";
+
+export const Exceptional = () => {
+  const sampleNoPoster = { ...SampleMovie, poster_path: undefined };
+  const movies = [
+      { ...sampleNoPoster, id: 1 },
+      { ...SampleMovie, id: 2 },
+      { ...sampleNoPoster, id: 3 },
+      { ...SampleMovie, id: 4 },
+    ];
+    return (
+      <Grid container spacing={5}>
+        <MovieList
+          movies={movies}
+          action={(movie) => <AddToFavoritesIcon movie={movie} />}
+        />
+      </Grid>
+    );
+};
+Exceptional.storyName = "exception";
