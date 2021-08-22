@@ -5,7 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-
+import MovieFilterIcon from '@material-ui/icons/MovieFilter';
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
@@ -33,6 +33,7 @@ const SiteHeader = ( { history }) => {
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Watchlist", path: "/movies/watchlist" },
     { label: "TV Shows", path: "/tvshows"},
+    { label: "Top Rated", path: "/tvshows/toprated"}
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -48,9 +49,9 @@ const SiteHeader = ( { history }) => {
       <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
-            TMDB Client
+            <MovieFilterIcon/> TMDB
           </Typography>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" align='center' className={classes.title}>
             All you ever wanted to know about Movies and TV Shows!
           </Typography>
             {isMobile ? (
