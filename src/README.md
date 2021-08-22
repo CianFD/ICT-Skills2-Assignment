@@ -12,6 +12,7 @@ Each Show Card has a Details Link which links to a TV Show Details page.
 TV Show Details Page displays the Show Name, Images of the Show, and list of details of the show including runtime, audience rating, etc.
 Top Rated Page shows list of TV Shows which have the highest audience score.
 Top Rated Page can be filtered by name as well.
+Attempted to implement a Similar Movies function where User clicks the Similar Button on the Movie Details Page and is brought to a new Page which lists Similar Movies. Could not get function to work. Tried multiple ways - new page with Similar Movies displayed, new section on MovieDetails Page with Similar Movies displayed - could not complete this. 
 
  
  
@@ -23,6 +24,7 @@ Top Rated Page can be filtered by name as well.
  + View List of Top Rated TV Shows (based on Audience Score)
  + Filter Top Rated list by name
  + Click Details Option which displays new Page giving Details of a Particular TV Show
+ + Click Similar Option which should display new Page giving a list of Similar Movies to the Previous Movie but this function does not work
 
 ## Setup requirements.
 User should first register for a User on The Movie Database (TMDB).
@@ -53,6 +55,8 @@ getTVShow returns the details of a singular tv show - API response using "The Ma
 
 getTVShowImages returns the list of Images attached to a particular TV show - API response using "The Mandalorian" as an example is below.
 
+getSimilarMovies returns a list of similar movies to the movie id inputted - API response using "Star Wars: The Last Jedi" as an example is below.
+
 ## App Design.
 
 ### Component catalogue.
@@ -69,12 +73,15 @@ shows details of a particular tv show after clicking on the details option on th
 
 shows list of top rated tv shows based on audience score. visible shows can again be filtered by name using box on the left.
 
+attempted to create new page showing list of similar movies to the previously clicked on movie but link is non-functional so cannot display what should render
+
 ### Routing.
 
 + GET /movies/watchlist - displays a list of upcoming movies that the user added to watchlist on the upcoming page.
 + GET /tvshows - displays list of tv shows.
 + GET /tvshows/:id - displays a particular tv shows details.
 + GET /tvshows/toprated - displays a list of the top rated tv shows based on audience score
++ GET /movies/:id/similar - displays new page with a list of similar movies to the previous page
 
 ## Independent learning (If relevant).
 
