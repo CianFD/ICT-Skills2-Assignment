@@ -72,6 +72,16 @@ const TVShowDetails = ({ show }) => {
             </li>
             ))}
         </Paper>
+        <Paper component="ul" className={classes.root}>
+            <li>
+            <Chip label="Seasons" className={classes.chip} color="primary" />
+            </li>
+            {show.seasons.map((g) => (
+            <li key={g.name}>
+                <Chip label={g.name} className={classes.chip} />
+            </li>
+            ))}
+        </Paper>
     </>
   );
 };
